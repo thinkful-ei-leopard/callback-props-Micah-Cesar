@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import List from './List';
 import renderer from 'react-test-renderer';
+import List from './List';
+
 
 
 //smoke testing 
@@ -25,7 +26,11 @@ describe('<Person />', () => {
 //snapshot testing
 describe('<List />', () => {
     it('renders this UI as expected', () => {
-        const tree = renderer.create(<List />).toJSON();
+        const tree = renderer.create(<List header="first list"
+        cards={[
+            {id: 1, title: 'first card', content:'lorem ipsum'},
+            {id: 2, title: 'second card', content:'lorem ipsum'}
+        ]} />).toJSON();
         expect(tree).toMatchSnapshot(); 
     });
 });
