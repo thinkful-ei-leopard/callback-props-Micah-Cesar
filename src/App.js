@@ -1,7 +1,7 @@
 import './App.css';
 import List from './List';
 import React , { Component } from 'react';
-import STORE from './STORE'
+import STORE from './store.js';
 import { render } from '@testing-library/react';
 
 
@@ -13,15 +13,16 @@ const newRandomCard = () => {
     title: `Random Card ${id}`,
     content: 'lorem ipsum',
   }
-}
+};
 function omit(obj, keyToOmit) {
   return Object.entries(obj).reduce(
     (newObj, [key, value]) =>
         key === keyToOmit ? newObj : {...newObj, [key]: value},
     {}
   );
-}
+};
  
+class App extends Component{
 state = {
   store: STORE,
 };
@@ -91,6 +92,14 @@ render(){
       </main>
     );
   }
-}
 
+};
+
+
+
+
+
+
+
+  
 export default App;
